@@ -3,6 +3,9 @@ import requests
 from django.conf import settings
 
 # Create your views here.
+from django.contrib.auth.decorators import login_required
+
+@login_required
 def base(request):
     response = requests.get(settings.API_URL)  # URL de la API
     posts = response.json()  # Convertir la respuesta a JSON
